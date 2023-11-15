@@ -20,8 +20,13 @@ int main(int argc, char *argv[])
 									  {"add", add},
 									  {"nop", nop},
 									  {NULL, NULL}};
-
 	char errorMsgCon[4096] = "Error: Can't open file ";
+	size_t n = 0;
+	char *line = NULL;
+	int fd;
+	char *delim = " ";
+	char *por;
+	int i = 0;
 
 	if (argc < 2)
 	{
@@ -32,5 +37,23 @@ int main(int argc, char *argv[])
 	{
 		puts(strcat(errorMsgCon, argv[1]));
 		exit(EXIT_FAILURE);
+	}
+	fd = open(argv[1], R_OK) while (getline(line, n, fd) != -1)
+	{
+		por = strtok(line, d);
+		while (instructionArr[i])
+		{
+			if (instructionArr[i] == por)
+			{
+				instructionArr[i].f(stack, lineNo);
+				break;
+			}
+			++i;
+		}
+		if (instructionArr[i].opcode == NULL)
+		{
+			printf("L %d: unknown instruction %s", lineNo, por);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
