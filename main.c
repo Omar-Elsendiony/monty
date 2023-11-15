@@ -12,6 +12,15 @@ stack_t *stack = NULL;
  */
 int main(int argc, char *argv[])
 {
+	instruction_t instructionArr[] = {{"push", push},
+									  {"pall", pall},
+									  {"pint", pint},
+									  {"pop", pop},
+									  {"swap", swap},
+									  {"add", add},
+									  {"nop", nop},
+									  {NULL, NULL}};
+
 	char errorMsgCon[4096] = "Error: Can't open file ";
 
 	if (argc < 2)
