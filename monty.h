@@ -32,7 +32,6 @@ typedef struct instruction_s
 
 extern int lineNo;
 extern char *currentValue;
-/*extern stack_t **stack; stack pointer points to HEAD*/
 int increment(void);
 
 
@@ -47,4 +46,5 @@ void sub(stack_t **stack, unsigned int line_number);
 void div_op(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
-
+void pstr(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);

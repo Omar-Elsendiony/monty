@@ -273,14 +273,18 @@ void pstr(stack_t **stack, unsigned int line_number)
     /* if the stack is empty so the first element points to NULL and the newly created element is the HEAD*/
     if (*stack != 0x00)
     {
-        if ((*stack)->n >= 0 && (*stack)->n <= 127)
+        stack_t *currentStack = *stack;
+        while (currentStack != 0x00)
         {
-            printf("%c\n", (*stack)->n);
-        }
-        else
-        {
-            fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
-            exit(EXIT_FAILURE);
+            if ((*stack)->n >= 0 && (*stack)->n <= 127)
+            {
+                printf("%c\n", (*stack)->n);
+            }
+            else
+            {
+                fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+                exit(EXIT_FAILURE);
+            }
         }
     }
     else
@@ -290,6 +294,32 @@ void pstr(stack_t **stack, unsigned int line_number)
     }
 }
 
+void rotl(stack_t **stack, unsigned int line_number)
+{
+    /* will try convert the value of the string arg before adding to stack*/
+    /* if the stack is empty so the first element points to NULL and the newly created element is the HEAD*/
+    if (*stack != 0x00)
+    {
+        stack_t *currentStack = *stack;
+        while (currentStack != 0x00)
+        {
+            if ((*stack)->n >= 0 && (*stack)->n <= 127)
+            {
+                printf("%c\n", (*stack)->n);
+            }
+            else
+            {
+                fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+                exit(EXIT_FAILURE);
+            }
+        }
+    }
+    else
+    {
+        fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+}
 
 void nop(stack_t **stack, unsigned int line_number)
 {

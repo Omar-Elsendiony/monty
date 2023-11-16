@@ -24,5 +24,9 @@ int main()
     div_op(&stackHead, lineNo);
     pall(&stackHead, lineNo);
     add(&stackHead, lineNo);
+    mul(&stackHead, lineNo);
+    mod(&stackHead, lineNo);
+    pchar(&stackHead, lineNo);
+    pstr(&stackHead, lineNo);
     return (0);
 }
