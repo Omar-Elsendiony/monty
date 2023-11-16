@@ -38,7 +38,6 @@ int main(int argc, char *argv[])
 		rmNewLine(line);
 		por = strtok(line, " ");
 		currentValue = strtok(NULL, " ");
-		instru(por, instructionArr, lineNo, &stackHead);
 		if (por)
 		{
 			i = 0;
