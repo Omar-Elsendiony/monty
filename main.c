@@ -17,6 +17,9 @@ int main(int argc, char *argv[])
 									  {"nop", nop},
 									  {NULL, NULL}};
 	char errorMsgCon[4096] = "Error: Can't open file ";
+	int lineNo = 1;
+	stack_t *stackHead = NULL;
+	stack_t *stackTail = NULL;
 	size_t n = 0;
 	char *line = NULL;
 	FILE *fd;
@@ -24,6 +27,7 @@ int main(int argc, char *argv[])
 	char *por;
 	int i = 0;
 
+	(void)stackTail;
 	if (argc < 2)
 	{
 		printf("USAGE: monty file\n");

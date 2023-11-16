@@ -37,12 +37,9 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern int lineNo;
 extern char *currentValue;
-extern stack_t *stackHead;
-extern stack_t *stackTail;
 
-int increment(void);
+int increment(int *lineNo);
 void rmNewLine(char *str);
 void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);

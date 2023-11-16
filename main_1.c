@@ -2,14 +2,11 @@
 
 /*Definition*/
 
-int lineNo = 1;
 char *currentValue = "123";
-stack_t *stackHead = NULL;
-stack_t *stackTail = NULL;
 
-int increment(void)
+int increment(int *lineNo)
 {
-	return (++lineNo);
+	return (++(*lineNo));
 }
 
 void rmNewLine(char *str)
