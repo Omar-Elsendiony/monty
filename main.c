@@ -22,7 +22,6 @@ int main(int argc, char *argv[])
 									  {"pstr", pstr},
 									  {"pchar", pchar},
 									  {NULL, NULL}};
-	char errorMsgCon[4096] = "Error: Can't open file ";
 	int lineNo = 1;
 	stack_t *stackHead = NULL;
 	stack_t *stackTail = NULL;
@@ -36,12 +35,12 @@ int main(int argc, char *argv[])
 	(void)stackTail;
 	if (argc < 2)
 	{
-		printf("USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	if (access(argv[1], R_OK) == -1)
 	{
-		puts(strcat(errorMsgCon, argv[1]));
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
@@ -67,7 +66,7 @@ int main(int argc, char *argv[])
 
 		if (instructionArr[i].opcode == NULL)
 		{
-			printf("L %d: unknown instruction %s", lineNo, por);
+			fprintf(stderr, "L %d: unknown instruction %s\n", lineNo, por);
 			exit(EXIT_FAILURE);
 		}
 	}
