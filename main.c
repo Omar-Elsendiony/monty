@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
 	char *line = NULL;
 	FILE *fd;
 	char *por;
+	int i = 0;
 
 	checks(argc, argv[1]);
 	fd = fopen(argv[1], "r");
@@ -38,6 +39,24 @@ int main(int argc, char *argv[])
 		por = strtok(line, " ");
 		currentValue = strtok(NULL, " ");
 		instru(por, instructionArr, lineNo, &stackHead);
+		if (por)
+		{
+			i = 0;
+			while (instructionArr[i].opcode)
+			{
+				if (strcmp(instructionArr[i].opcode, por) == 0)
+				{
+					instructionArr[i].f(&stackHead, lineNo);
+					break;
+				}
+				++i;
+			}
+		}
+		if (instructionArr[i].opcode == NULL)
+		{
+			fprintf(stderr, "L %d: unknown instruction %s\n", lineNo, por);
+			exit(EXIT_FAILURE);
+		}
 		increment(&lineNo);
 	}
 	free(line);
