@@ -38,24 +38,7 @@ int main(int argc, char *argv[])
 		rmNewLine(line);
 		por = strtok(line, " ");
 		currentValue = strtok(NULL, " ");
-		if (por)
-		{
-			i = 0;
-			while (instructionArr[i].opcode)
-			{
-				if (strcmp(instructionArr[i].opcode, por) == 0)
-				{
-					instructionArr[i].f(&stackHead, lineNo);
-					break;
-				}
-				++i;
-			}
-		}
-		if (instructionArr[i].opcode == NULL)
-		{
-			fprintf(stderr, "L %d: unknown instruction %s\n", lineNo, por);
-			exit(EXIT_FAILURE);
-		}
+		instru(por, instructionArr, lineNo, &stackHead);
 		increment(&lineNo);
 	}
 	free(line);
