@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 int lineNo = 1;
 int currentValue = 0;
