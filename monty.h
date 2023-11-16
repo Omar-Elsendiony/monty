@@ -32,6 +32,8 @@ typedef struct instruction_s
 
 extern int lineNo;
 extern char *currentValue;
+extern stack_t **stackHead;
+extern stack_t **stackTail;
 int increment(void);
 
 
