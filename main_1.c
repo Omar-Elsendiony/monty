@@ -23,10 +23,19 @@ void rmNewLine(char *str)
 	}
 }
 
-void freeAllStack(stack_t **s)
+void freeAllStack(stack_t *s)
 {
-	if (s)
+	stack_t *tmp = s;
+
+	if (!s)
 		return;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+		free(s);
+		s = tmp;
+	}
+	free(tmp);
 }
 
 /**

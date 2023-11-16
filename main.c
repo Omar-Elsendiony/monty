@@ -66,5 +66,7 @@ int main(int argc, char *argv[])
 		}
 	}
 	free(line);
+	freeAllStack(stackHead);
+	fclose(fd);
 	return (0);
 }

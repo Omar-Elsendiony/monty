@@ -41,6 +41,7 @@ extern char *currentValue;
 
 int increment(int *lineNo);
 void rmNewLine(char *str);
+void freeAllStack(stack_t *s);
 void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
