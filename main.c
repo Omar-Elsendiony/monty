@@ -1,5 +1,6 @@
 #include "monty.h"
 
+char *currentValue = "0";
 /**
  * main - Entry point
  * @argc: number of argu passed
@@ -69,6 +70,7 @@ int main(int argc, char *argv[])
 			fprintf(stderr, "L %d: unknown instruction %s\n", lineNo, por);
 			exit(EXIT_FAILURE);
 		}
+		increment(&lineNo);
 	}
 	free(line);
 	freeAllStack(stackHead);
