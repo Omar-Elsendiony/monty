@@ -39,7 +39,6 @@ typedef struct instruction_s
 } instruction_t;
 
 extern int lineNo;
-<<<<<<< HEAD:main.h
 extern int currentValue;
 extern stack_t *stack;
 
@@ -54,24 +53,3 @@ int increment(void);
 void rmNewLine(char *str);
 
 #endif
-=======
-extern char *currentValue;
-extern stack_t **stackHead;
-extern stack_t **stackTail;
-int increment(void);
-
-
-void push(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-void sub(stack_t **stack, unsigned int line_number);
-void div_op(stack_t **stack, unsigned int line_number);
-void mul(stack_t **stack, unsigned int line_number);
-void mod(stack_t **stack, unsigned int line_number);
-void pstr(stack_t **stack, unsigned int line_number);
-void pchar(stack_t **stack, unsigned int line_number);
->>>>>>> 8d04482a05ae676b5e2d9d19cd2a2d01b13ec3dd:monty.h
