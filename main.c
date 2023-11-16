@@ -15,6 +15,12 @@ int main(int argc, char *argv[])
 									  {"swap", swap},
 									  {"add", add},
 									  {"nop", nop},
+									  {"sub", sub},
+									  {"div_op", div_op},
+									  {"mul", mul},
+									  {"mod", mod},
+									  {"pstr", pstr},
+									  {"pchar", pchar},
 									  {NULL, NULL}};
 	char errorMsgCon[4096] = "Error: Can't open file ";
 	int lineNo = 1;
