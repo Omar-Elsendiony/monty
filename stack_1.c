@@ -30,6 +30,7 @@ void push(stack_t **stack, unsigned int line_number)
 void pall(stack_t **stack, unsigned int line_number)
 {
 	/*write code here*/
+	printf("palllllll\n");
 }
 
 /**
@@ -41,6 +42,7 @@ void pall(stack_t **stack, unsigned int line_number)
 void pint(stack_t **stack, unsigned int line_number)
 {
 	/*write code here*/
+	printf("pinttttttttt\n");
 }
 
 /**
@@ -49,7 +51,8 @@ void pint(stack_t **stack, unsigned int line_number)
  * @line_number: the line number of excution
  * Return: the value on top
  */
-int pop(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	/*write code here*/
+	printf("poppppppp\n");
 }
