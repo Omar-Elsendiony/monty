@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
 	char *line = NULL;
 	FILE *fd;
 	char *por;
-	int i = 0;
 
 	checks(argc, argv[1]);
 	fd = fopen(argv[1], "r");
