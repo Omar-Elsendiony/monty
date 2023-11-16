@@ -1,9 +1,5 @@
 #include "monty.h"
 
-int lineNo = 1;
-int currentValue = 0;
-stack_t *stack = NULL;
-
 /**
  * main - Entry point
  * @argc: number of argu passed
@@ -44,6 +40,7 @@ int main(int argc, char *argv[])
 	{
 		rmNewLine(line);
 		por = strtok(line, d);
+		currentValue = strtok(NULL, d);
 		if (por)
 		{
 			i = 0;
@@ -51,7 +48,7 @@ int main(int argc, char *argv[])
 			{
 				if (strcmp(instructionArr[i].opcode, por) == 0)
 				{
-					instructionArr[i].f(&stack, lineNo);
+					instructionArr[i].f(&stackHead, lineNo);
 					break;
 				}
 				++i;
@@ -64,4 +61,6 @@ int main(int argc, char *argv[])
 			exit(EXIT_FAILURE);
 		}
 	}
+	free(line);
+	return (0);
 }

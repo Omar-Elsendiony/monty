@@ -1,9 +1,16 @@
 #include "monty.h"
 
-/* definitions */
+/*Definition*/
+
 int lineNo = 1;
 char *currentValue = "123";
-int increment(void) { return ++lineNo; }
+stack_t *stackHead = NULL;
+stack_t *stackTail = NULL;
+
+int increment(void)
+{
+	return (++lineNo);
+}
 
 void rmNewLine(char *str)
 {

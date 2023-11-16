@@ -1,6 +1,6 @@
 #ifndef MONYT_H_
 #define MONYT_H_
-
+#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -39,8 +39,8 @@ typedef struct instruction_s
 
 extern int lineNo;
 extern char *currentValue;
-extern stack_t **stackHead;
-extern stack_t **stackTail;
+extern stack_t *stackHead;
+extern stack_t *stackTail;
 
 int increment(void);
 void rmNewLine(char *str);
