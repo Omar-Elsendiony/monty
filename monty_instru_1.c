@@ -8,18 +8,16 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	/**
-	 * will try convert the value of the string arg before adding to stack
-	 * if the stack is empty so the first element points to NULL
-	 * the newly created element is the HEAD
-	 */
 	int intVal;
-	
+	int i;
+
 	intVal = atoi(currentValue);
-	if ((intVal == 0 && currentValue[0] != '0' ) || currentValue == 0x00)
+	if ((intVal == 0 && currentValue[0] != '0') || currentValue == 0x00)
+		pushIntErr(line_number);
+	for (i = 0; currentValue[i]; ++i)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
+		if ((currentValue[i] > '9' || currentValue[i] < '0') && i != 0)
+			pushIntErr(line_number);
 	}
 	if (*stack == 0)
 	{
