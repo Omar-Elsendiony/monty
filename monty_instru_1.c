@@ -16,7 +16,7 @@ void push(stack_t **stack, unsigned int line_number)
 	int intVal;
 
 	intVal = atoi(currentValue);
-	if (intVal == 0 && currentValue[0] != 0)
+	if ((intVal == 0 && currentValue[0] != '0' )|| currentValue == 0x00)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
