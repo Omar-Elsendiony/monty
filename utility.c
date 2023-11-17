@@ -78,6 +78,6 @@ void checks(int argc, char *fileName)
 
 int instrNotFnd(char *por, unsigned int lineNo)
 {
-	fprintf(stderr, "L %d: unknown instruction %s\n", lineNo, por);
+	fprintf(stderr, "L%d: unknown instruction %s\n", lineNo, por);
 	exit(EXIT_FAILURE);
 }
