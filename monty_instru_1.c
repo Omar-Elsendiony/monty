@@ -15,12 +15,12 @@ void push(stack_t **stack, unsigned int line_number)
 	 */
 	int intVal;
 
-	if (currentValue == 0x00)
+	intVal = atoi(currentValue);
+	if (intVal == 0 && currentValue[0] != 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	intVal = atoi(currentValue);
 	if (*stack == 0)
 	{
 		*stack = malloc(sizeof(stack_t));
