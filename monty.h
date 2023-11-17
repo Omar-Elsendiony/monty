@@ -39,11 +39,11 @@ typedef struct instruction_s
 
 extern char *currentValue;
 
-int increment(int *lineNo);
+int increment(unsigned int *lineNo);
 void rmNewLine(char *str);
 void freeAllStack(stack_t *s);
 void checks(int argc, char *fileName);
-void instru(char *por, instruction_t *instruArr, int lineNo, stack_t **stack);
+int instrNotFnd(char *por, unsigned int lineNo);
 void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);

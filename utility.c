@@ -5,7 +5,7 @@
  * @lineNo: the line number of excution
  * Return: the new line number
  */
-int increment(int *lineNo)
+int increment(unsigned int *lineNo)
 {
 	return (++(*lineNo));
 }
@@ -70,33 +70,14 @@ void checks(int argc, char *fileName)
 }
 
 /**
- * instru - search for instruction and do it
+ * instrNotFnd - error when no command found
  * @por: the instruction name
- * @instruArr: array of instruction and names
  * @lineNo: the line number
- * @stack: the stack
- * Return: nothing
+ * Return: alaways error
  */
-void instru(char *por, instruction_t *instruArr, int lineNo, stack_t **stack)
-{
-	int i;
 
-	if (por)
-	{
-		i = 0;
-		while (instruArr[i].opcode)
-		{
-			if (strcmp(instruArr[i].opcode, por) == 0)
-			{
-				instruArr[i].f(stack, lineNo);
-				break;
-			}
-			++i;
-		}
-	}
-	if (instruArr[i].opcode == NULL)
-	{
-		fprintf(stderr, "L %d: unknown instruction %s\n", lineNo, por);
-		exit(EXIT_FAILURE);
-	}
+int instrNotFnd(char *por, unsigned int lineNo)
+{
+	fprintf(stderr, "L %d: unknown instruction %s\n", lineNo, por);
+	exit(EXIT_FAILURE);
 }

@@ -9,27 +9,15 @@ char *currentValue = "0";
  */
 int main(int argc, char *argv[])
 {
-	instruction_t instructionArr[] = {{"push", push},
-									  {"pall", pall},
-									  {"pint", pint},
-									  {"pop", pop},
-									  {"swap", swap},
-									  {"add", add},
-									  {"nop", nop},
-									  {"sub", sub},
-									  {"div_op", div_op},
-									  {"mul", mul},
-									  {"mod", mod},
-									  {"pstr", pstr},
-									  {"pchar", pchar},
-									  {NULL, NULL}};
-	int lineNo = 1;
+	instruction_t instructionArr[] = {
+		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap},
+		{"add", add}, {"nop", nop}, {"sub", sub}, {"div_op", div_op}, {"mul", mul},
+		{"mod", mod}, {"pstr", pstr}, {"pchar", pchar}, {NULL, NULL}};
+	unsigned int lineNo = 1, i = 0;
 	stack_t *stackHead = NULL;
 	size_t n = 0;
-	char *line = NULL;
+	char *line = NULL, *por;
 	FILE *fd;
-	char *por;
-	int i = 0;
 
 	checks(argc, argv[1]);
 	fd = fopen(argv[1], "r");
@@ -52,10 +40,7 @@ int main(int argc, char *argv[])
 			}
 		}
 		if (instructionArr[i].opcode == NULL)
-		{
-			fprintf(stderr, "L %d: unknown instruction %s\n", lineNo, por);
-			exit(EXIT_FAILURE);
-		}
+			instrNotFnd(por, lineNo);
 		increment(&lineNo);
 	}
 	free(line);
